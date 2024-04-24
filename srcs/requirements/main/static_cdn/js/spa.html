@@ -1,0 +1,86 @@
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    let languageSelect = document.querySelector('#languageForm select[name="language"]');
+    languageSelect.addEventListener("change", function() {
+        const language = this.value;
+        fetch("{% url 'set_language' %}", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken'),
+            },
+            body: JSON.stringify({
+                language: language
+            }),
+            credentials: "include",
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            // Dil başarıyla değiştirildi, sayfayı güncelleyin
+            location.reload();
+        })
+        .catch(error => console.error('Error:', error));
+    });
+
+    const contentPage = document.querySelector('#contentPage');
+    if (contentPage) {
+        if (document.querySelectorAll('a')) {
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', e => {
+                    e.preventDefault();
+                    const href = link.getAttribute('href');
+                    history.pushState({path: href}, '', href);
+                    loadPage(href);
+                });
+            });
+        }
+    }
+    const formElement = document.querySelector('.formElement');
+    if (formElement) {
+        formElement.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+            }).then(response => response.text()).then(html => {
+                const doc = new DOMParser().parseFromString(html, 'text/html');
+                contentPage.innerHTML = doc.querySelector('#contentPage').innerHTML;
+                const title = doc.querySelector('title');
+                if (title) {
+                    document.title = title.text;
+                }
+            }).catch(error => console.error('Error:', error));
+        });
+    }
+    //updateUserStatusForAllUsers();
+    window.addEventListener('popstate', function (event) {
+        loadPage(history.state.path);
+        //updateUserStatusForAllUsers();
+    });
+});
+
+function loadPage(path) {
+    fetch(path,
+        {
+            redirect: 'follow',
+            credentials: 'include',
+        }
+    )
+        .then(response => response.text())
+        .then(partHtml => {
+            const contentPage = document.querySelector('#contentPage');
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(partHtml, 'text/html');
+            contentPage.innerHTML = doc.querySelector('#contentPage').innerHTML
+            const title = document.querySelector('#contentPage title');
+            if (title) {
+                document.title = title.text;
+                title.remove()
+            }
+        })
+        .catch(error => console.error('Error fetching additional part:', error));
+}
+</script>

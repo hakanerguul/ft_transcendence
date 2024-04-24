@@ -1,0 +1,1004 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-15 11:25+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: account/forms.py:21 account/forms.py:58
+msgid "Email \"{}\" is already in use."
+msgstr "L'e-mail \"{}\" est déjà utilisé."
+
+#: account/forms.py:29 account/forms.py:66
+msgid "Username \"{}\" is already in use."
+msgstr "Le nom d'utilisateur \"{}\" est déjà utilisé."
+
+#: account/forms.py:43
+msgid "Invalid login"
+msgstr "Connexion invalide"
+
+#: account/models.py:11
+msgid "Users must have an email address."
+msgstr "Les utilisateurs doivent avoir une adresse e-mail."
+
+#: account/models.py:13
+msgid "Users must have an username."
+msgstr "Les utilisateurs doivent avoir un nom d'utilisateur."
+
+#: account/models.py:15
+msgid "Users must have an first name."
+msgstr "Les utilisateurs doivent avoir un prénom."
+
+#: account/models.py:17
+msgid "Users must have an last name."
+msgstr "Les utilisateurs doivent avoir un nom de famille."
+
+#: account/templates/html/account.html:3 templates/part/navbar.html:117
+#: tictac/templates/html/navbar.html:89
+msgid "Account"
+msgstr "Compte"
+
+#: account/templates/html/account.html:30
+#: account/templates/html/edit_account.html:31
+msgid "Email"
+msgstr "E-mail"
+
+#: account/templates/html/account.html:37
+msgid "This user hidden his email"
+msgstr "Cet utilisateur a caché son e-mail"
+
+#: account/templates/html/account.html:40
+#: account/templates/html/edit_account.html:28
+#: account/templates/html/edit_account.html:29
+#: account/templates/html/home.html:16 account/templates/html/register.html:19
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: account/templates/html/account.html:42
+#: account/templates/html/edit_account.html:21
+#: account/templates/html/edit_account.html:22
+#: account/templates/html/register.html:21
+msgid "First Name"
+msgstr "Prénom"
+
+#: account/templates/html/account.html:44
+#: account/templates/html/edit_account.html:24
+#: account/templates/html/edit_account.html:25
+#: account/templates/html/register.html:23
+msgid "Last Name"
+msgstr "Nom de famille"
+
+#: account/templates/html/account.html:49 templates/password/change.html:27
+msgid "Update"
+msgstr "Mettre à jour"
+
+#: account/templates/html/account.html:51
+msgid "Change password"
+msgstr "Changer le mot de passe"
+
+#: account/templates/html/account.html:62
+msgid "Accept Friend Request"
+msgstr "Accepter la demande d'ami"
+
+#: account/templates/html/account.html:81
+msgid "Cancel Friend Request"
+msgstr "Annuler la demande d'ami"
+
+#: account/templates/html/account.html:85
+msgid "Send Friend Request"
+msgstr "Envoyer une demande d'ami"
+
+#: account/templates/html/account.html:91
+msgid "Block this user"
+msgstr "Bloquer cet utilisateur"
+
+#: account/templates/html/account.html:95
+msgid "Unfriend"
+msgstr "Retirer de la liste d'amis"
+
+#: account/templates/html/account.html:102
+#: account/templates/html/search.html:31 chat/templates/html/room.html:53
+#: friend/templates/friend_list.html:35
+msgid "Friends"
+msgstr "Amis"
+
+#: account/templates/html/account.html:109
+#: friend/templates/friend_request.html:4
+msgid "Friend Request"
+msgstr "Demande d'ami"
+
+#: account/templates/html/account.html:115
+msgid "Friend Requests"
+msgstr "Demandes d'ami"
+
+#: account/templates/html/account.html:145 chat/templates/html/room.html:98
+#: pong/templates/html/ai.html:42 pong/templates/html/ai.html:67
+#: pong/templates/html/ai.html:89 pong/templates/html/offline.html:47
+#: tictac/templates/html/front.html:51
+msgid "Close"
+msgstr "Fermer"
+
+#: account/templates/html/account.html:157
+msgid "Message"
+msgstr "Message"
+
+#: account/templates/html/account.html:167
+msgid "Unblock this user"
+msgstr "Débloquer cet utilisateur"
+
+#: account/templates/html/edit_account.html:4
+msgid "Edit Account"
+msgstr "Modifier le compte"
+
+#: account/templates/html/edit_account.html:17
+msgid "Edit"
+msgstr "Modifier"
+
+#: account/templates/html/edit_account.html:32
+#: account/templates/html/login.html:21 account/templates/html/register.html:17
+#: templates/password/reset_form.html:10
+msgid "Email address"
+msgstr "Adresse e-mail"
+
+#: account/templates/html/edit_account.html:38
+msgid "Hide Email"
+msgstr "Cacher l'e-mail"
+
+#: account/templates/html/edit_account.html:57
+msgid "Save"
+msgstr "Enregistrer"
+
+#: account/templates/html/edit_account.html:58
+msgid "Back"
+msgstr "Retour"
+
+#: account/templates/html/home.html:3 account/templates/html/home.html:8
+#: templates/part/navbar.html:10 tictac/templates/html/navbar.html:9
+msgid "Home"
+msgstr "Accueil"
+
+#: account/templates/html/home.html:12
+msgid "Users"
+msgstr "Utilisateurs"
+
+#: account/templates/html/home.html:17
+msgid "Status"
+msgstr "Statut"
+
+#: account/templates/html/login.html:4 account/templates/html/login.html:38
+#: templates/part/navbar.html:129 tictac/templates/html/navbar.html:101
+msgid "Login"
+msgstr "Connexion"
+
+#: account/templates/html/login.html:23 account/templates/html/register.html:26
+msgid "Password"
+msgstr "Mot de passe"
+
+#: account/templates/html/login.html:41 templates/password/reset_form.html:8
+msgid "Reset password"
+msgstr "Réinitialiser le mot de passe"
+
+#: account/templates/html/register.html:4
+#: account/templates/html/register.html:45
+msgid "Register"
+msgstr "S'inscrire"
+
+#: account/templates/html/register.html:31 templates/password/change.html:18
+msgid "Confirm password"
+msgstr "Confirmez le mot de passe"
+
+#: account/templates/html/search.html:4 templates/part/navbar.html:109
+#: tictac/templates/html/navbar.html:80
+msgid "Search"
+msgstr "Recherche"
+
+#: account/templates/html/search.html:24 friend/templates/friend_list.html:28
+msgid "Send a Message"
+msgstr "Envoyer un message"
+
+#: account/templates/html/search.html:42 friend/templates/friend_list.html:46
+msgid "Not Friends"
+msgstr "Pas d'amis"
+
+#: account/templates/html/search.html:49 friend/templates/friend_list.html:58
+msgid "This is you"
+msgstr "C'est vous"
+
+#: account/templates/html/search.html:62
+#: friend/templates/friend_request.html:42
+msgid "No results"
+msgstr "Aucun résultat"
+
+#: account/templates/js/home.html:27
+msgid "awhile ago"
+msgstr "il y a un moment"
+
+#: account/templates/js/home.html:30
+msgid "day(s) ago"
+msgstr "jour(s) auparavant"
+
+#: account/templates/js/home.html:32
+msgid "hour(s) ago"
+msgstr "heure(s) auparavant"
+
+#: account/templates/js/home.html:34
+msgid "minute(s) ago"
+msgstr "minute(s) auparavant"
+
+#: account/templates/js/home.html:36
+msgid "second(s) ago"
+msgstr "seconde(s) auparavant"
+
+#: account/templates/js/home.html:64
+msgid "Online"
+msgstr "En ligne"
+
+#: account/templates/js/home.html:67
+msgid "Offline"
+msgstr "Hors ligne"
+
+#: account/views.py:93
+msgid "User does not exist"
+msgstr "L'utilisateur n'existe pas"
+
+#: account/views.py:111
+msgid "You are blocked by this {} user."
+msgstr "Vous êtes bloqué par cet utilisateur {}."
+
+#: account/views.py:177
+msgid "Invalid query"
+msgstr "Requête invalide"
+
+#: account/views.py:186
+msgid "something went wrong"
+msgstr "quelque chose s'est mal passé"
+
+#: account/views.py:188
+msgid "You cannot edit this account"
+msgstr "Vous ne pouvez pas modifier ce compte"
+
+#: chat/consumers.py:51
+msgid "You can't send an empty message."
+msgstr "Vous ne pouvez pas envoyer un message vide."
+
+#: chat/consumers.py:61
+msgid "Something went wrong retrieving the chatroom messages."
+msgstr ""
+"Un problème est survenu lors de la récupération des messages de la salle de "
+"discussion."
+
+#: chat/consumers.py:71
+msgid "Something went wrong retrieving the other users account details."
+msgstr ""
+"Un problème est survenu lors de la récupération des détails du compte des "
+"autres utilisateurs."
+
+#: chat/consumers.py:86 chat/consumers.py:315
+msgid "EXCEPTION: "
+msgstr "EXCEPTION :"
+
+#: chat/consumers.py:152 chat/consumers.py:155 chat/consumers.py:262
+#: chat/consumers.py:268
+msgid "ROOM_ACCESS_DENIED"
+msgstr "ACCÈS_SALLE_REFUSÉ"
+
+#: chat/consumers.py:152 chat/consumers.py:155
+msgid "Room access denied"
+msgstr "Accès à la salle refusé"
+
+#: chat/consumers.py:258
+msgid "ROOM_INVALID"
+msgstr "SALLE_INVALIDE"
+
+#: chat/consumers.py:258
+msgid "Invalid room."
+msgstr "Salle invalide."
+
+#: chat/consumers.py:262
+msgid "You do not have permission to join this room."
+msgstr "Vous n'avez pas la permission de rejoindre cette salle."
+
+#: chat/consumers.py:268
+msgid "You must be friends to chat."
+msgstr "Vous devez être amis pour discuter."
+
+#: chat/consumers.py:290
+msgid "DATA_ERROR"
+msgstr "ERREUR_DE_DONNÉES"
+
+#: chat/consumers.py:290
+msgid "Unable to get that users information."
+msgstr "Impossible d'obtenir les informations de cet utilisateur."
+
+#: chat/exceptions.py:15
+msgid "ClientError(code = {}, message = {})"
+msgstr "ErreurClient(code = {}, message = {})"
+
+#: chat/templates/html/room.html:4 templates/part/navbar.html:23
+#: tictac/templates/html/navbar.html:20
+msgid "Chat"
+msgstr "Discussion"
+
+#: chat/templates/html/room.html:27
+msgid "Loading"
+msgstr "Chargement"
+
+#: chat/templates/html/room.html:38 chat/templates/html/room.html:39
+msgid "Type your message"
+msgstr "Tapez votre message"
+
+#: chat/templates/html/room.html:41
+msgid "Send"
+msgstr "Envoyer"
+
+#: chat/templates/html/room.html:72
+msgid "No message your friends"
+msgstr "Aucun message de vos amis"
+
+#: chat/templates/html/room.html:89 tictac/templates/html/front.html:42
+msgid "Socket Client Error"
+msgstr "Erreur du client Socket"
+
+#: chat/templates/html/room.html:94 friend/views.py:55 friend/views.py:75
+#: friend/views.py:152 tictac/templates/html/front.html:47
+msgid "Something went wrong."
+msgstr "Quelque chose s'est mal passé."
+
+#: chat/templates/js/create_or_return_private_chat.html:22
+#: chat/templates/js/room.html:391 chat/views.py:103
+msgid "Successfully."
+msgstr "Avec succès."
+
+#: chat/templates/js/create_or_return_private_chat.html:29
+#: chat/templates/js/room.html:398 friend/templates/snippets/accept.html:24
+#: friend/templates/snippets/block.html:28
+#: friend/templates/snippets/cancel.html:29
+#: friend/templates/snippets/decline.html:24
+#: friend/templates/snippets/remove.html:29
+#: friend/templates/snippets/send.html:28
+#: friend/templates/snippets/unblock.html:29
+msgid "Error"
+msgstr "Erreur"
+
+#: chat/views.py:58
+msgid "Friend object not found for user: {}"
+msgstr "Objet ami introuvable pour l'utilisateur : {}"
+
+#: chat/views.py:106
+msgid "Unable to start a chat with that user."
+msgstr "Impossible de démarrer une discussion avec cet utilisateur."
+
+#: chat/views.py:108
+msgid "Invalid request method."
+msgstr "Méthode de requête invalide."
+
+#: chat/views.py:110
+msgid "You can't start a chat if you are not authenticated."
+msgstr ""
+"Vous ne pouvez pas démarrer une discussion si vous n'êtes pas authentifié."
+
+#: friend/templates/friend_list.html:4 friend/templates/friend_list_2.html:4
+msgid "Friend List"
+msgstr "Liste d'amis"
+
+#: friend/templates/friend_list.html:69
+msgid "No friends"
+msgstr "Pas d'amis"
+
+#: friend/templates/friend_list_2.html:10
+msgid "Not found user id"
+msgstr "Identifiant utilisateur non trouvé"
+
+#: friend/templates/snippets/accept.html:18 friend/views.py:73
+msgid "Friend request accepted."
+msgstr "Demande d'ami acceptée."
+
+#: friend/templates/snippets/block.html:21 friend/views.py:111
+msgid "Successfully blocked user."
+msgstr "Utilisateur bloqué avec succès."
+
+#: friend/templates/snippets/cancel.html:22 friend/views.py:178
+#: friend/views.py:182
+msgid "Friend request canceled."
+msgstr "Demande d'ami annulée."
+
+#: friend/templates/snippets/decline.html:17 friend/views.py:150
+msgid "Friend request declined."
+msgstr "Demande d'ami refusée."
+
+#: friend/templates/snippets/remove.html:22 friend/views.py:93
+msgid "Successfully removed friend."
+msgstr "Ami supprimé avec succès."
+
+#: friend/templates/snippets/send.html:22 friend/views.py:46 friend/views.py:52
+msgid "Friend request sent."
+msgstr "Demande d'ami envoyée."
+
+#: friend/templates/snippets/unblock.html:22 friend/views.py:129
+msgid "Successfully unblocked user."
+msgstr "Utilisateur débloqué avec succès."
+
+#: friend/views.py:23
+msgid "U can't view another users friend requests."
+msgstr "Vous ne pouvez pas voir les demandes d'ami d'autres utilisateurs."
+
+#: friend/views.py:43
+msgid "U already sent them a friend request."
+msgstr "Vous leur avez déjà envoyé une demande d'ami."
+
+#: friend/views.py:57 friend/views.py:79
+msgid "Unable to send a friend request."
+msgstr "Impossible d'envoyer une demande d'ami."
+
+#: friend/views.py:59 friend/views.py:81
+msgid "U must be authenticated to send a friend request."
+msgstr "Vous devez être authentifié pour envoyer une demande d'ami."
+
+#: friend/views.py:77
+msgid "That is not your friend request."
+msgstr "Ce n'est pas votre demande d'ami."
+
+#: friend/views.py:95 friend/views.py:113 friend/views.py:131
+msgid "Something went wrong {}"
+msgstr "Quelque chose s'est mal passé {}"
+
+#: friend/views.py:97
+msgid "There was an error. Unable to remove that friend."
+msgstr "Une erreur s'est produite. Impossible de supprimer cet ami."
+
+#: friend/views.py:99
+msgid "U must be authenticated to remove a friend."
+msgstr "Vous devez être authentifié pour supprimer un ami."
+
+#: friend/views.py:115
+msgid "There was an error. Unable to block that user."
+msgstr "Une erreur s'est produite. Impossible de bloquer cet utilisateur."
+
+#: friend/views.py:117
+msgid "You must be authenticated to block a user."
+msgstr "Vous devez être authentifié pour bloquer un utilisateur."
+
+#: friend/views.py:133
+msgid "There was an error. Unable to unblock that user."
+msgstr "Une erreur s'est produite. Impossible de débloquer cet utilisateur."
+
+#: friend/views.py:135
+msgid "You must be authenticated to unblock a user."
+msgstr "Vous devez être authentifié pour débloquer un utilisateur."
+
+#: friend/views.py:154
+msgid "That is not your friend request to decline."
+msgstr "Ce n'est pas votre demande d'ami à décliner."
+
+#: friend/views.py:156
+msgid "Unable to decline friend request."
+msgstr "Impossible de décliner la demande d'ami."
+
+#: friend/views.py:158
+msgid "U must be authenticated."
+msgstr "Vous devez être authentifié."
+
+#: friend/views.py:173
+msgid "Nothing to cancel. Friend request does not exist."
+msgstr "Rien à annuler. La demande d'ami n'existe pas."
+
+#: friend/views.py:184
+msgid "Unable to cancel that friend request."
+msgstr "Impossible d'annuler cette demande d'ami."
+
+#: friend/views.py:187
+msgid "You must be authenticated to cancel a friend request."
+msgstr "Vous devez être authentifié pour annuler une demande d'ami."
+
+#: friend/views.py:201
+msgid "That user does not exist."
+msgstr "Cet utilisateur n'existe pas."
+
+#: friend/views.py:205
+msgid "Could not find a friends list for {}"
+msgstr "Impossible de trouver une liste d'amis pour {}"
+
+#: friend/views.py:210 friend/views.py:220
+msgid "You must be friends to view their friends list."
+msgstr "Vous devez être amis pour voir leur liste d'amis."
+
+#: main/settings.py:195
+msgid "German"
+msgstr "Allemand"
+
+#: main/settings.py:196
+msgid "English"
+msgstr "Anglais"
+
+#: main/settings.py:197
+msgid "French"
+msgstr "Français"
+
+#: main/settings.py:198
+msgid "Italian"
+msgstr "Italien"
+
+#: main/settings.py:199
+msgid "Turkish"
+msgstr "Turc"
+
+#: pong/templates/html/ai.html:19
+msgid "Difficulty Settings"
+msgstr "Paramètres de difficulté"
+
+#: pong/templates/html/ai.html:20 pong/templates/html/ai.html:55
+msgid "Color Settings"
+msgstr "Paramètres de couleur"
+
+#: pong/templates/html/ai.html:21 pong/templates/html/ai.html:80
+msgid "Ball Speed Settings"
+msgstr "Paramètres de vitesse de la balle"
+
+#: pong/templates/html/ai.html:31 pong/templates/html/ai.html:36
+msgid "Difficulty Level"
+msgstr "Niveau de difficulté"
+
+#: pong/templates/html/ai.html:37
+msgid "Easy"
+msgstr "Facile"
+
+#: pong/templates/html/ai.html:38
+msgid "Medium"
+msgstr "Moyen"
+
+#: pong/templates/html/ai.html:39
+msgid "Hard"
+msgstr "Difficile"
+
+#: pong/templates/html/ai.html:60
+msgid "Player Color"
+msgstr "Couleur du joueur"
+
+#: pong/templates/html/ai.html:62
+msgid "AI Color"
+msgstr "Couleur de l'IA"
+
+#: pong/templates/html/ai.html:66 pong/templates/html/offline.html:49
+msgid "Apply"
+msgstr "Appliquer"
+
+#: pong/templates/html/ai.html:85
+msgid "Ball Speed"
+msgstr "Vitesse de la balle"
+
+#: pong/templates/html/game_home.html:5
+msgid "Pong Home"
+msgstr "Accueil de Pong"
+
+#: pong/templates/html/game_home.html:9 tictac/templates/html/front.html:8
+#: tictac/templates/html/play.html:9
+msgid "Hello"
+msgstr "Bonjour"
+
+#: pong/templates/html/game_home.html:22 pong/templates/html/game_home.html:41
+#: pong/templates/html/history.html:20
+msgid "Room Name"
+msgstr "Nom de la salle"
+
+#: pong/templates/html/game_home.html:24
+msgid "Enter the name of the room to create"
+msgstr "Entrez le nom de la salle à créer"
+
+#: pong/templates/html/game_home.html:26 pong/templates/html/turnuva.html:14
+msgid "Start the Game"
+msgstr "Démarrer le jeu"
+
+#: pong/templates/html/game_home.html:31
+msgid "Game History Table"
+msgstr "Tableau de l'historique des parties"
+
+#: pong/templates/html/game_home.html:32
+msgid "Play Tournaments"
+msgstr "Jouer à des tournois"
+
+#: pong/templates/html/game_home.html:33
+msgid "Play with Ai"
+msgstr "Jouer avec l'IA"
+
+#: pong/templates/html/game_home.html:34
+msgid "Play with Offline"
+msgstr "Jouer avec Offline"
+
+#: pong/templates/html/game_home.html:42
+msgid "Creator"
+msgstr "Créateur"
+
+#: pong/templates/html/game_home.html:43
+msgid "Is Over"
+msgstr "Est terminé"
+
+#: pong/templates/html/history.html:6 pong/templates/html/history.html:11
+#: tictac/templates/html/game_history.html:3
+#: tictac/templates/html/game_history.html:7
+#: tictac/templates/html/navbar.html:54
+msgid "Game History"
+msgstr "Historique des parties"
+
+#: pong/templates/html/history.html:12 pong/templates/html/offline.html:13
+msgid "Game Home"
+msgstr "Accueil du jeu"
+
+#: pong/templates/html/history.html:17
+#: tictac/templates/html/game_history.html:11
+msgid "Player 1"
+msgstr "Joueur 1"
+
+#: pong/templates/html/history.html:18
+#: tictac/templates/html/game_history.html:12
+msgid "Player 2"
+msgstr "Joueur 2"
+
+#: pong/templates/html/history.html:19
+#: tictac/templates/html/game_history.html:13
+msgid "Winner"
+msgstr "Gagnant"
+
+#: pong/templates/html/history.html:21
+msgid "Game State"
+msgstr "État de la partie"
+
+#: pong/templates/html/history.html:30 pong/templates/html/history.html:38
+msgid "Waiting for Player"
+msgstr "En attente du joueur"
+
+#: pong/templates/html/history.html:40 pong/templates/html/history.html:50
+#: pong/templates/js/game_home.html:93
+msgid "Continues"
+msgstr "En cours"
+
+#: pong/templates/html/history.html:48 tictac/templates/js/play.html:130
+msgid "Over"
+msgstr "Terminé"
+
+#: pong/templates/html/oda.html:15 pong/templates/html/oda.html:17
+msgid "Change Racket Color"
+msgstr "Changer la couleur de la raquette"
+
+#: pong/templates/html/offline.html:3
+msgid "Offline Game"
+msgstr "Jeu hors ligne"
+
+#: pong/templates/html/offline.html:12
+msgid "Try Again"
+msgstr "Essayer à nouveau"
+
+#: pong/templates/html/offline.html:17
+msgid "Reset"
+msgstr "Réinitialiser"
+
+#: pong/templates/html/offline.html:18 pong/templates/html/offline.html:25
+msgid "Settings"
+msgstr "Paramètres"
+
+#: pong/templates/html/offline.html:30
+msgid "Player 1 Racket Color:"
+msgstr "Joueur 1 Couleur de la raquette:"
+
+#: pong/templates/html/offline.html:34
+msgid "Player 2 Racket Color:"
+msgstr "Joueur 2 Couleur de la raquette:"
+
+#: pong/templates/html/offline.html:38
+msgid "Color of the Ball:"
+msgstr "Couleur de la balle:"
+
+#: pong/templates/html/offline.html:42
+msgid "Ball Speed:"
+msgstr "Vitesse de la balle:"
+
+#: pong/templates/html/turnuva.html:3
+msgid "Tournament"
+msgstr "Tournoi"
+
+#: pong/templates/html/turnuva.html:9
+msgid "Player 1 Nickname"
+msgstr "Pseudo du joueur 1"
+
+#: pong/templates/html/turnuva.html:10
+msgid "Player 2 Nickname"
+msgstr "Pseudo du joueur 2"
+
+#: pong/templates/html/turnuva.html:11
+msgid "Player 3 Nickname"
+msgstr "Pseudo du joueur 3"
+
+#: pong/templates/html/turnuva.html:28
+msgid "Start the Final Game"
+msgstr "Démarrer la partie finale"
+
+#: pong/templates/js/ai.html:130 pong/templates/js/oda.html:399
+#: pong/templates/js/oda.html:405
+msgid "You Won!"
+msgstr "Vous avez gagné !"
+
+#: pong/templates/js/ai.html:133 pong/templates/js/oda.html:401
+#: pong/templates/js/oda.html:407
+msgid "You Lost!"
+msgstr "Vous avez perdu !"
+
+#: pong/templates/js/game_home.html:43
+msgid "Please enter a room name."
+msgstr "Veuillez saisir un nom de pièce."
+
+#: pong/templates/js/game_home.html:86
+msgid "You"
+msgstr "Vous"
+
+#: pong/templates/js/game_home.html:93
+msgid "Finished"
+msgstr "Terminé"
+
+#: pong/templates/js/game_home.html:97
+msgid "Join"
+msgstr "Rejoindre"
+
+#: pong/templates/js/oda.html:37
+msgid "Player Pending"
+msgstr "Joueur en attente"
+
+#: pong/templates/js/oda.html:218
+msgid "Failed to update winner:"
+msgstr "Échec de la mise à jour du gagnant :"
+
+#: pong/templates/js/oda.html:221
+msgid "Error updating winner:"
+msgstr "Erreur lors de la mise à jour du gagnant :"
+
+#: pong/templates/js/turnuva.html:18
+msgid "Please Attention: Enter the names of the players!"
+msgstr "Attention: Entrez le nom des joueurs!"
+
+#: pong/templates/js/turnuva.html:203
+msgid "Semi-Final Winner: "
+msgstr "Vainqueur de la demi-finale : "
+
+#: pong/templates/js/turnuva.html:206
+msgid "Next match: "
+msgstr "Prochain match : "
+
+#: pong/templates/js/turnuva.html:213
+msgid "Winner: "
+msgstr "Vainqueur: "
+
+#: pong/views.py:19 tictac/views.py:19
+msgid "room information not available room name {}"
+msgstr "informations sur la salle non disponibles nom de la salle {}"
+
+#: pong/views.py:30 pong/views.py:45 tictac/views.py:40
+msgid "The room is already full or finish"
+msgstr "La salle est déjà pleine ou terminée"
+
+#: pong/views.py:37 tictac/views.py:33
+msgid "The room does not exist"
+msgstr "La salle n'existe pas"
+
+#: pong/views.py:78 pong/views.py:84 tictac/views.py:72 tictac/views.py:78
+msgid "Invalid request method"
+msgstr "Méthode de requête invalide"
+
+#: templates/404.html:5
+msgid "Page not found"
+msgstr "Page non trouvée"
+
+#: templates/404.html:6
+msgid "Sorry, the page you are looking for does not exist."
+msgstr "Désolé, la page que vous recherchez n'existe pas."
+
+#: templates/part/navbar.html:96 tictac/templates/html/navbar.html:66
+msgid "Language"
+msgstr "Langue"
+
+#: templates/part/navbar.html:118 tictac/templates/html/navbar.html:90
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: templates/part/navbar.html:133 tictac/templates/html/navbar.html:105
+msgid "Sign Up"
+msgstr "S'inscrire"
+
+#: templates/password/change.html:3 templates/password/change.html:8
+msgid "Password Change"
+msgstr "Changement de mot de passe"
+
+#: templates/password/change.html:10
+msgid "Old password"
+msgstr "Ancien mot de passe"
+
+#: templates/password/change.html:14
+msgid "New password"
+msgstr "Nouveau mot de passe"
+
+#: templates/password/change_done.html:3
+msgid "Password Change Done"
+msgstr "Changement de mot de passe effectué"
+
+#: templates/password/change_done.html:8
+msgid "Your password has been Updated."
+msgstr "Votre mot de passe a été mis à jour."
+
+#: templates/password/reset_complete.html:3
+msgid "Password Reset Complete"
+msgstr "Réinitialisation du mot de passe terminée"
+
+#: templates/password/reset_complete.html:9
+msgid "Your password has been reset."
+msgstr "Votre mot de passe a été réinitialisé."
+
+#: templates/password/reset_complete.html:10
+msgid "You may go ahead and"
+msgstr "Vous pouvez maintenant"
+
+#: templates/password/reset_complete.html:10
+msgid "log in"
+msgstr "vous connecter"
+
+#: templates/password/reset_done.html:3
+msgid "Password Reset Done"
+msgstr "Réinitialisation du mot de passe terminée"
+
+#: templates/password/reset_done.html:9
+msgid ""
+"We've emailed you instructions for setting your password, if an account "
+"exists with the email you entered."
+msgstr ""
+"Nous vous avons envoyé des instructions par e-mail pour définir votre mot de "
+"passe, si un compte existe avec l'e-mail que vous avez entré."
+
+#: templates/password/reset_done.html:10
+msgid "You should receive them shortly."
+msgstr "Vous devriez les recevoir sous peu."
+
+#: templates/password/reset_done.html:13
+msgid ""
+"If you don't receive an email, please make sure you've entered the address "
+"you registered with, and check your spam folder."
+msgstr ""
+"Si vous ne recevez pas d'e-mail, assurez-vous d'avoir entré l'adresse avec "
+"laquelle vous vous êtes inscrit et vérifiez votre dossier de courrier "
+"indésirable."
+
+#: templates/password/reset_done.html:15
+msgid "Return to home page"
+msgstr "Retour à la page d'accueil"
+
+#: templates/password/reset_email.html:2
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+"Vous recevez cet e-mail car vous avez demandé une réinitialisation de mot de "
+"passe pour votre compte utilisateur sur %(site_name)s."
+
+#: templates/password/reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+"Veuillez vous rendre sur la page suivante et choisir un nouveau mot de "
+"passe :"
+
+#: templates/password/reset_email.html:8
+msgid "Your username, in case you’ve forgotten:"
+msgstr "Votre nom d'utilisateur, au cas où vous l'auriez oublié :"
+
+#: templates/password/reset_email.html:9
+msgid "This link will expire in 1 days."
+msgstr "Ce lien expirera dans 1 jour."
+
+#: templates/password/reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr "Merci d'utiliser notre site !"
+
+#: templates/password/reset_email.html:11
+msgid "Transformers Team"
+msgstr "L'équipe Transformers"
+
+#: templates/password/reset_form.html:3
+msgid "Password Reset"
+msgstr "Réinitialisation du mot de passe"
+
+#: templates/password/reset_form.html:12
+msgid "Send reset email"
+msgstr "Envoyer un e-mail de réinitialisation"
+
+#: tictac/consumers.py:37
+msgid "The connection closed unexpectedly."
+msgstr "La connexion a été fermée de manière inattendue."
+
+#: tictac/consumers.py:39
+msgid "Connection closed successfully."
+msgstr "Connexion fermée avec succès."
+
+#: tictac/consumers.py:41
+#, python-brace-format
+msgid "Connection closed. Code: {close_code}"
+msgstr "Connexion fermée. Code : {close_code}"
+
+#: tictac/templates/html/front.html:7 tictac/templates/html/play.html:8
+msgid "PLAY"
+msgstr "JOUER"
+
+#: tictac/templates/html/front.html:20
+msgid "Choose Option"
+msgstr "Choisir une option"
+
+#: tictac/templates/html/front.html:22
+msgid "Create Room Code"
+msgstr "Créer un code de salle"
+
+#: tictac/templates/html/front.html:23
+msgid "Have Room Code"
+msgstr "Avoir un code de salle"
+
+#: tictac/templates/html/front.html:26
+msgid "Enter Room Code"
+msgstr "Entrer le code de la salle"
+
+#: tictac/templates/html/front.html:27
+msgid "Type room code"
+msgstr "Entrez le code de la salle"
+
+#: tictac/templates/html/front.html:29
+msgid "Start Game"
+msgstr "Démarrer le jeu"
+
+#: tictac/templates/html/game_history.html:14
+msgid "Room code"
+msgstr "Code de la salle"
+
+#: tictac/templates/html/game_history.html:15
+msgid "Date Played"
+msgstr "Date de la partie"
+
+#: tictac/templates/js/play.html:77
+msgid "Good job! You won."
+msgstr "Bien joué! Vous avez gagné."
+
+#: tictac/templates/js/play.html:127
+msgid "Sorry! You lost"
+msgstr "Désolé! Vous avez perdu."
+
+#: tictac/templates/js/play.html:131
+msgid "Game over! No one won."
+msgstr "Partie terminée! Personne n'a gagné."
+
+#: tictac/templates/js/play.html:139 tictac/templates/js/play.html:151
+msgid "It is your turn"
+msgstr "C'est à vous de jouer"
+
+#: tictac/templates/js/play.html:141 tictac/templates/js/play.html:153
+msgid "Now"
+msgstr "Maintenant"
+
+#: tictac/views.py:28
+msgid "The room is already full"
+msgstr "La salle est déjà pleine"
+
+#~ msgid "Last Seen"
+#~ msgstr "Vu pour la dernière fois"
+
+#~ msgid "Please login first."
+#~ msgstr "Veuillez d'abord vous connecter."
+
+#~ msgid "You've already signed up. Please login again."
+#~ msgstr "Vous êtes déjà inscrit. Veuillez vous connecter à nouveau."
+
+#~ msgid "Games"
+#~ msgstr "Jeux"

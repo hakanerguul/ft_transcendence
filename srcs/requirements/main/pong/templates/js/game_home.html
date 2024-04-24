@@ -1,0 +1,110 @@
+{% load i18n %}
+<script>
+    const socket = new WebSocket(`${window.location.protocol === 'https:' ? 'wss' : 'ws'}://${window.location.host}/ws/anasayfa/`);
+
+    socket.onopen = function() {
+        fetchRooms();
+        socket.send(JSON.stringify(data = {type: 'update', sayfa: 'yenile'}));
+    };
+
+    socket.onmessage = function(event) {
+        const data = JSON.parse(event.data);
+        if (data.type === 'update')
+            fetchRooms()
+    };
+
+    socket.onclose = function() {
+        fetchRooms();
+        socket.send(JSON.stringify(data = {type: 'update', sayfa: 'yenile'}));
+    };
+    window.onload = function() {
+        fetchRooms();
+    };
+    window.addEventListener('beforeunload', function() {
+        fetchRooms();
+        socket.send(JSON.stringify(data = {type: 'update', sayfa: 'yenile'}));
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById("submitHistory").onclick = function() {
+            fetchRooms();
+            socket.send(JSON.stringify(data = {type: 'update', sayfa: 'yenile'}));
+        };
+
+        document.getElementById("submitTurnuva").onclick = function() {
+            fetchRooms();
+            socket.send(JSON.stringify(data = {type: 'update', sayfa: 'yenile'}));
+        };
+
+        document.getElementById("submitStart").onclick = function(e) {
+            const roomName = document.getElementById('oda_ismi').value;
+            if (!roomName) {
+                e.preventDefault();
+                alert('{% trans 'Please enter a room name.' %}');
+                return;
+            }
+            fetchRooms();
+            socket.send(JSON.stringify(data = {type: 'update', sayfa: 'yenile'}));
+        };
+
+        if(document.getElementById('submit'))
+        {
+            document.getElementById("submit").onclick = function() {
+                fetchRooms();
+                socket.send(JSON.stringify(data = {type: 'update', sayfa: 'yenile'}));
+            };
+        }
+    });
+
+    async function fetchRooms() {
+        await fetch('/fetch-rooms')
+            .then(response => response.json())
+            .then(data => {
+                if (data.rooms)
+                    updateRoomsList(data.rooms);
+            })
+        .catch(error => console.error(error));
+    }
+
+    function submitForm(button) {
+        const roomName = button.dataset.roomName;
+        const option = document.querySelector('#formSubmit input[name="option"]');
+        const odaIsmi = document.querySelector('#formSubmit input[name="oda_ismi"]');
+        if (roomName === '' && option.value === '' && odaIsmi.value === '') {
+            alert('{% trans "Please enter a room name." %}');
+        } else {
+            option.value = '2'
+            odaIsmi.value = roomName;
+            const formSubmit = document.getElementById('formSubmit');
+            formSubmit.submit();
+        }
+    }
+
+    function updateRoomsList(rooms) {
+        if (document.querySelector('#rooms-table tbody')) {
+            const tableBody = document.querySelector('#rooms-table tbody');
+            tableBody.innerHTML = '';
+            rooms.forEach(room => {
+                let creator = room.creator;
+                if (room.size < 2 && room.opponent === null) {
+                    if (room.creator === '{{ request.user.username }}') {
+                        creator = '{% trans 'You' %}';
+                    }
+                    if (room.name) {
+                        tableBody.innerHTML += `
+                            <tr>
+                                <td>${room.name}</td>
+                                <td>${creator}</td>
+                                <td>${room.is_over ? '{% translate "Finished" %}' : '{% trans 'Continues' %}'}</td>
+                                <td>
+                                    <input type="hidden" id="option" name="option" value='2'>
+                                    <input type="hidden" id="oda_ismi" name="oda_ismi" value="${room.name}">
+                                    <button type="submit" onclick="submitForm(this)" class="btn btn-sm btn-secondary" data-room-name="${room.name}">{% trans 'Join' %}</button>
+                                </td>
+                            </tr>`;
+                    }
+                }
+            });
+        }
+    }
+</script>

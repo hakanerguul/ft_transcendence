@@ -1,0 +1,74 @@
+{% load i18n %}
+<script>
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    function getTimeString(elapsedTime) {
+        const seconds = Math.floor(elapsedTime / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+
+        if (days === 19795) {
+            return "{% trans 'awhile ago' %}";
+        }
+        if (days > 0) {
+            return `${days} {% trans 'day(s) ago' %}`;
+        } else if (hours > 0) {
+            return `${hours} {% trans 'hour(s) ago' %}`;
+        } else if (minutes > 0) {
+            return `${minutes} {% trans 'minute(s) ago' %}`;
+        } else {
+            return `${seconds} {% trans 'second(s) ago' %}`;
+        }
+    }
+
+    function updateUserStatusForUser(userId) {
+        fetch("{% url 'account:user_status' %}", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken'),
+            },
+            body: JSON.stringify({
+                user_id: userId
+            }),
+            credentials: "include",
+        })
+        .then(response => response.json())
+        .then(data => {
+            const statusElement = document.getElementById(`status-${userId}`);
+            if (data.status === 'Online') {
+                statusElement.style.color = 'green';
+                statusElement.innerHTML = "{% trans 'Online' %}";
+            } else {
+                statusElement.style.color = 'red';
+                statusElement.innerHTML = "{% trans 'Offline' %}";
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function updateUserStatusForAllUsers() {
+        const userRows = document.querySelectorAll('#user-status');
+        userRows.forEach(row => {
+            const userId = row.getAttribute('data-user-id');
+            updateUserStatusForUser(userId);
+        });
+    }
+    updateUserStatusForAllUsers();
+    setInterval(updateUserStatusForAllUsers, 30000);
+</script>

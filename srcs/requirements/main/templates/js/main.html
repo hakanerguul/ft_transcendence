@@ -1,0 +1,123 @@
+<script>
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    function showPass(inputPassword) {
+        const pass = document.getElementById(inputPassword)
+        const icon = document.querySelector('.eye-icon')
+        if (pass && icon) {
+            if (pass.type === "password") {
+                icon.innerHTML = '🙈'
+                pass.type = "text"
+            } else if (pass.type === "text") {
+                pass.type = "password"
+                icon.innerHTML = '👁️'
+            }
+        }
+    }
+
+    function executeQuery(event) {
+        event.preventDefault();
+        const searchData = document.getElementById("id_q_small").value;
+        fetch("{% url 'account:search' %}?q=" + searchData)
+            .then(response => response.text())
+            .then(data => {
+                const contentPage = document.querySelector('#contentPage');
+                const doc =  new DOMParser().parseFromString(data, 'text/html');
+                const nav = document.querySelector('#navbar_');
+                nav.innerHTML = doc.querySelector('#navbar_').innerHTML;
+                contentPage.innerHTML = doc.querySelector('#contentPage').innerHTML;
+                const title = document.querySelector('#contentPage title');
+                if (title) {
+                    document.title = title.text;
+                    title.remove();
+                }
+            })
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        let languageSelect = document.querySelector('#languageForm select[name="language"]');
+        languageSelect.addEventListener("change", function () {
+            document.getElementById('languageForm').submit();
+        });
+/*
+
+        const contentPage = document.querySelector('#contentPage');
+        if (contentPage) {
+            if (document.querySelectorAll('a')) {
+                document.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', e => {
+                        e.preventDefault();
+                        loadPage(link.getAttribute('href'));
+                        console.log(link.getAttribute('href'))
+                        history.pushState({path: link.getAttribute('href')}, '', link.getAttribute('href'));
+                    });
+                });
+            }
+        }
+        const formElement = document.querySelector('.formElement');
+        if (formElement) {
+            formElement.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                })
+                    .then(response => response.text())
+                    .then(html => {
+                    const doc = new DOMParser().parseFromString(html, 'text/html');
+                    const nav = document.querySelector('#navbar_');
+                    nav.innerHTML = doc.querySelector('#navbar_').innerHTML;
+                    contentPage.innerHTML = doc.querySelector('#contentPage').innerHTML;
+                    const title = document.querySelector('#contentPage title');
+                    if (title) {
+                        document.title = title.text;
+                        title.remove();
+                    }
+                }).catch(error => console.error('Error:', error));
+            });
+        }
+ */
+        window.addEventListener('popstate', function (event) {
+            if (event.state && event.state.path)
+                loadPage(event.state.path);
+        });
+
+        function loadPage(path) {
+            fetch(path,
+                {
+                    redirect: 'follow',
+                    credentials: 'include',
+                }
+            )
+                .then(response => response.text())
+                .then(partHtml => {
+                    const doc =  new DOMParser().parseFromString(partHtml, 'text/html');
+                    const contentPage = document.querySelector('#contentPage');
+                    const nav = document.querySelector('#navbar_');
+                    nav.innerHTML = doc.querySelector('#navbar_').innerHTML;
+                    contentPage.innerHTML = doc.querySelector('#contentPage').innerHTML;
+                    const title = document.querySelector('#contentPage title');
+                    if (title) {
+                        document.title = title.text;
+                        title.remove();
+                    }
+                })
+                .catch(error => console.error(error));
+        }
+    });
+</script>

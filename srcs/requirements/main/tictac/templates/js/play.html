@@ -1,0 +1,189 @@
+{% load i18n %}
+<script>
+const	room_code = '{{ room_code }}'
+const socket = new WebSocket(
+	`${window.location.protocol === "https:" ? "wss" : "ws"}://${window.location.host}/ws/game/${room_code}`)
+		
+const	username = '{{ user }}'
+const	creator = '{{ creator }}'
+var     opponent = '{{ opponent }}'
+
+let	tmp1 = creator
+
+let	gameState = ["", "", "", "", "", "", "", "", ""]
+let element = document.querySelectorAll('.space')
+let	player = creator === username ? creator : opponent
+let current = creator === username ? 'X' : 'O'
+
+element.forEach(function(el) {
+    el.addEventListener('click', function(e) {
+        if (e instanceof MouseEvent && tmp1 === username) {
+            setText(e.currentTarget.getAttribute('data-cell-index'), current);
+        }
+    });
+});
+
+function isGameEnd() {
+	let	count = 0
+
+	gameState.map((game) => {
+		if (game !== "") {
+			count++;
+		}
+	})
+
+	if (count >= 9) {
+		const	data = {
+			'type': 'over',
+		}
+		socket.send(JSON.stringify({
+			data
+		}))
+        window.location.href = '{% url 'tictac:game_history' %}';
+	}
+}
+
+
+function isGameWon(value, player) {
+	let win = false
+
+	// horizontal
+	if ((gameState[0] === value && gameState[1] === value && gameState[2] === value) ||
+		(gameState[3] === value && gameState[4] === value && gameState[5] === value) ||
+		(gameState[6] === value && gameState[7] === value && gameState[8] === value)
+	)
+		win = true
+	// vertical
+	else if ((gameState[0] === value && gameState[3] === value && gameState[6] === value) ||
+			(gameState[1] === value && gameState[4] === value && gameState[7] === value) ||
+			(gameState[2] === value && gameState[5] === value && gameState[8] === value)
+	)
+		win = true
+	// cross
+	else if ((gameState[0] === value && gameState[4] === value && gameState[8] === value) ||
+			(gameState[2] === value && gameState[4] === value && gameState[6] === value)
+	)
+		win = true
+
+	if (win) {
+		const	data = {
+            'user': username,
+			'type': 'end',
+			'player': current,
+		}
+		socket.send(JSON.stringify({
+			data
+		}))
+        alert("{% trans 'Good job! You won.' %}");
+        window.location.href = '{% url 'tictac:game_history' %}';
+	}
+	isGameEnd()
+
+}
+
+function	setText(index, value){
+	const	data = {
+		'user': username,
+		'player' : current,
+		'index' : index,
+		'type' : 'running'
+	}
+
+	if (gameState[parseInt(index)] === "") {
+		gameState[parseInt(index)] = value
+		element[parseInt(index)].innerHTML = value
+		socket.send(JSON.stringify({
+			data
+		}))
+		isGameWon(value, username)
+	}
+}
+
+function	setAnotherUserText(index, value){
+	gameState[parseInt(index)] = value
+	element[parseInt(index)].innerHTML = value
+}
+
+
+socket.onopen = function() {
+	if (creator) {
+		const gameContainer = document.getElementById('game-container').style;
+		const containers = document.getElementById('containers').style;
+		if (gameContainer.display === 'none') {
+			gameContainer.display = 'block';
+			if (containers)
+                containers.display = 'none';
+		}
+	}
+}
+
+socket.onmessage = function(e) {
+    e.preventDefault();
+    const data = JSON.parse(e.data);
+
+    console.log(data.payload.user)
+    if (data.payload.type === 'end' && data.payload.user !== username) {
+        sendWinnerToServer(data.payload.user);
+        alert("{% trans 'Sorry! You lost' %}");
+        window.location.href = '{% url 'tictac:game_history' %}';
+    } else if (data.payload.type === 'over') {
+        sendWinnerToServer('{% trans "Over" %}');
+        alert("{% trans 'Game over! No one won.' %}");
+        window.location.href = '{% url 'tictac:game_history' %}';
+    } else if (data.payload.type === 'running' && data.payload.user !== username) {
+        setAnotherUserText(data.payload.index, data.payload.player);
+        tmp1 = tmp1 === creator ? opponent : creator;
+        const turn = document.getElementById('player');
+        if (turn) {
+            if (tmp1 === username) {
+                turn.innerHTML = `{% trans 'It is your turn' %}`;
+            } else {
+                turn.innerHTML = `{% trans 'Now' %} ${tmp1}`;
+            }
+        }
+    }
+
+    if (data.payload.type === 'running' && data.payload.user === username) {
+        tmp1 = tmp1 === creator ? opponent : creator;
+        const turn = document.getElementById('player');
+        if (turn) {
+            if (tmp1 === username) {
+                turn.innerHTML = `{% trans 'It is your turn' %}`;
+            } else {
+                turn.innerHTML = `{% trans 'Now' %} ${tmp1}`;
+            }
+        }
+    }
+}
+
+
+socket.onclose = function (e){
+	//onclose
+}
+
+
+async function sendWinnerToServer(winner) {
+	if (winner) {
+		const url = "{% url 'tictac:update_winner' room_code=room_code %}"
+		await fetch(`${url}`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'X-CSRFToken': '{{ csrf_token }}',
+			},
+			body: JSON.stringify({
+				'winner': winner,
+			}),
+		})
+		.then(response => response.json())
+		.then(data => {
+			if (data.success) {
+				//updated
+			} else {
+				console.error('Failed to update winner:', data.error);
+			}
+		})
+		.catch(error => console.error('Error updating winner:', error));
+	}
+}
+</script>

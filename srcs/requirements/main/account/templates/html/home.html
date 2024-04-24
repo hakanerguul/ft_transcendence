@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans 'Home' %}{% endblock %}
+
+{% block content %}
+    <div id="contentPage">
+        <div class="container text-center">
+            <h1 class="text-xl">{% trans 'Home' %}</h1>
+
+            {% if request.user.is_authenticated %}
+                <div style="overflow: auto; width: 400px; height: 550px;" class="border position-fixed end-0">
+                    <h2>{% trans 'Users' %}</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">{% trans 'Username' %}</th>
+                                <th scope="col">{% trans 'Status' %}</th>
+                            </tr>
+                        </thead>
+                        <tbody id="user-table-body">
+                            {% for user in users %}
+                                {% if request.user.username != user.username %}
+                                    <tr id="user-status" data-user-id="{{ user.id }}">
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <a class="btn" href="{% url 'account:account_view' user_id=user.id %}">
+                                                    <img src="{{ user.profile_image.url }}" class="rounded-circle m-1" id="id_other_user_profile_image" alt="profile_logo">
+                                                    {{ user.username }}
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle" id="status-{{ user.id }}"></td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endif %}
+        </div>
+        {% include 'js/home.html' %}
+    </div>
+{% endblock %}
